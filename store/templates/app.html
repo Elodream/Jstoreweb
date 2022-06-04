@@ -1,0 +1,55 @@
+{%extends 'storebase.html'%}
+{%block title%}{%endblock%}
+
+{% block content%}
+{%if browser == "jstore"%}
+<section class="py-3">
+<h5>top apps</h5>
+<div class="px-4">
+    {%for i in apps %}
+    <div class="card bg-white rounded-0" style="width: 160px; height: 224px; ">
+        <img src="{{i.icon}}" alt="" class="card-img">
+
+    </div>
+    {%endfor%}
+</section>
+
+</div>
+
+<section class="py-3">
+ <h5>top games</h5> 
+    <div class="px-4">
+        {%for i in games %}
+        <div class="card bg-white rounded-0" style="width: 192px; height: 288px; ">
+            <img src="{{i.icon}}" alt="" class="card-img">
+
+        </div>
+        {%endfor%}
+    </div>
+ 
+</section>
+
+<section class="py-3">
+  <h5>top films</h5>
+  <div class="px-4">
+    {%for i in films %}
+    <div class="card bg-white rounded-0" style="width: 160px; height: 224px; ">
+        <img src="{{i.icon}}" alt="" class="card-img">
+
+    </section>
+    {%endfor%}
+</div>
+</div>
+{%else%}
+<div class="container lead text-center">
+    <p>
+        <span class="fs-1">Please download Jstore if you want to download an application </span>
+
+    </p>
+
+    <p><a href="" class="btn btn-lg btn-primary rounded-0">Get Jstore</a></p>
+    
+
+</div>
+{%endif%}
+{%endblock%}
