@@ -16,14 +16,38 @@
     <link rel="icon" href="{%static 'ico.png'%}" type="image/x-icon">
     <title>{%block title%}home | elodream{%endblock%}</title>
 
+    
+
 </head>
 
 <body class="" style="background-color:#fBfBfB ;">
-    
-    <header class="navbar  ">
 
-           
-    </header>
+<style>
+ ::selection {
+        color: #ffffff;
+        background: #f4368e;
+      }
+
+    ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:#f4368e
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+</style>
+   
     
     {%block content%}
 

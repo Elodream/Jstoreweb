@@ -24,13 +24,20 @@ class Like(models.Model):
 class  Item(models.Model):
     name=models.CharField(max_length=87,null=True)
     description=models.TextField(null=True)
+    shortdescription=models.CharField(default="this is a short description " ,max_length=100)
     type=models.CharField(default="game",max_length=120)
     uploaddate=models.DateField(auto_now=True)
 
 
-    file=models.FileField(upload_to="")
+    file=models.FileField(upload_to="storefile")
     icon=models.FileField(upload_to="storeitemicon")
+
     makepub=models.BooleanField(default=False)
+    offlinepricing=models.FloatField(default=0)
+    allowdownload=models.BooleanField(default=True)
+    Downloadpricing=models.FloatField(default=0)
+
+
     visibility=models.CharField(default="public",max_length=100)
 
 
