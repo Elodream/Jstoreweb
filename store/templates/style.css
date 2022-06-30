@@ -1,0 +1,88 @@
+::selection {
+    color: #ffffff;
+    background: #f4368e;
+  }
+
+::-webkit-scrollbar {
+width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background:#f4368e
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+
+footer .nav-link
+{
+    
+    text-decoration: none!important;
+}
+
+.nav-link
+{
+    color: white!important;
+    font-size: 1.2rem;
+    padding-bottom: 0;
+}
+.nav-link:hover
+{
+    
+    border-bottom: 1px solid white;
+}
+
+
+.store-card
+{
+    width: 192px; 
+    height: 288px; 
+    color:black;
+    text-decoration: none;
+    border: none;
+    box-shadow: 0px 0px 2px 0px rgb(170, 170, 170);
+}
+
+.btn-primary
+{
+    background: #f4368e;
+border: none;
+font-size: 1.4rem;
+padding: 10px 30px;
+transition: background 0.4s linear;
+}
+.btn-primary:hover
+{
+    background: #ffffff;
+border: none;
+font-size: 1.4rem;
+border: 1px #f4368e solid ;
+color:#f4368e ;
+padding: 10px 30px;
+}
+
+.btn-secondary
+{
+    background: #000000;
+    color: white;
+border: none;
+font-size: 1.4rem;
+padding: 10px 30px;
+}
+
+.btn-secondary:hover
+{
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+border:1PX solid black;
+font-size: 1.4rem;
+padding: 10px 30px;
+}

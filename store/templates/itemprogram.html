@@ -1,0 +1,46 @@
+{%extends 'storebase.html'%}
+{%block title%}{%endblock%}
+
+{% block content%}
+
+<div class="container-fluid text-center ">
+ <div class="text-center w-100 bg-white  my-2 row rounded-4">
+<div class="col-lg-5 m-auto">
+
+    <div class="my-5">
+        <img width="120" src="{{item.icon.url}}" alt="">
+        <h1>{{item.name}}</h1>
+        <p class="lead">
+            {{item.shortdescription}}
+        </p>
+    </div>
+    
+    <div class="row">
+       <p class="col">
+        <a href="" id="dwnb"  class="btn w-100 btn-primary">download </a>
+    </p>
+
+    <p class="col">
+        <a href="" class="btn btn-secondary w-100 ">use online </a>
+    </p>  
+    </div>
+   
+</div>
+</div> 
+ 
+
+</div>
+<script>
+  new QWebChannel(qt.webChannelTransport,
+    function(channel){
+    var jsmanager = channel.objects.jsmanager;
+    
+    document.getElementById("dwnb").addEventListener("click",function()
+    {
+        jsmanager.use("{{file}}")
+    })
+    });
+
+</script>
+
+{%endblock%}

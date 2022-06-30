@@ -1,5 +1,6 @@
 from distutils.command.upload import upload
 from email.policy import default
+from tarfile import BLOCKSIZE
 from xml.etree.ElementTree import Comment
 from django.db import models
 
@@ -31,9 +32,10 @@ class  Item(models.Model):
 
     file=models.FileField(upload_to="storefile")
     icon=models.FileField(upload_to="storeitemicon")
+    overview=models.FileField(upload_to="overviewitem",blank=True)
 
     makepub=models.BooleanField(default=False)
-    offlinepricing=models.FloatField(default=0)
+    onlinepricing=models.FloatField(default=0)
     allowdownload=models.BooleanField(default=True)
     Downloadpricing=models.FloatField(default=0)
 

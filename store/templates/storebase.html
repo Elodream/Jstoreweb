@@ -9,52 +9,274 @@
     
     <meta name="description" content="live your dream !">
     <meta name="keyword" content="artfana elodream dream help website wordpress">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="{%static 'elodream.css' %}">
-    
+    <link rel="stylesheet" href="{%static 'style.css' %}">
+    <link rel="stylesheet" href="{%static 'bootstrap.min.css'%}">
     
     <link rel="icon" href="{%static 'ico.png'%}" type="image/x-icon">
     <title>{%block title%}home | elodream{%endblock%}</title>
 
-    
+    <script src="{% static 'qwebchannel.js'%}"></script>
 
 </head>
 
 <body class="" style="background-color:#fBfBfB ;">
 
-<style>
- ::selection {
-        color: #ffffff;
-        background: #f4368e;
-      }
 
-    ::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background:#f4368e
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-</style>
-   
-    
     {%block content%}
+    {%if browser == "jstore"%}
 
+    <section class="py-3 px-3">
+    <h5>top apps</h5>
+    <div class="px-4">
+        {%for i in apps %}
+        <a class="card bg-white rounded-3 store-card" href="{%url 'storeitemprogram' i.pk %}" >
+            <div class="card-img-top align-items-center d-flex  justify-content-center" style="height:124px ;">
+                <img width="100px" height="" src="{{i.icon.url}}" alt="" class="">
+            </div>
+            
+
+            <div class="text-center card-body">
+                <h5>{{i.name}}</h5>
+                <p>{{i.shortdescription}}</p>
+                
+            </div>
+            <p class="px-2">
+                {%if not i.offlinepricing == 0%}
+               gratuit
+                {%else%}
+                 {{i.offlinepricing}}$
+                {%endif%}
+            </p>
+          </a>
+        {%endfor%}
+    </div>
+    </section>
+    
+    
+    
+    <section class="py-3">
+     <h5>top games</h5> 
+        <div class="px-4">
+            {%for i in games %}
+            <a class="card bg-white rounded-3 store-card" href="{%url 'storeitemprogram' i.pk %}" >
+                <div class="card-img-top align-items-center d-flex  justify-content-center" style="height:124px ;">
+                    <img width="100px" height="" src="{{i.icon.url}}" alt="" class="">
+                </div>
+                
+
+                <div class="text-center card-body">
+                    <h5>{{i.name}}</h5>
+                    <p>{{i.shortdescription}}</p>
+                    
+                </div>
+                <p class="px-2">
+                    {%if not i.offlinepricing == 0%}
+                    gratuit
+                    {%else%}
+                    {{i.offlinepricing}}$
+                    {%endif%}
+                </p>
+    
+            </a>
+            {%endfor%}
+        </div>
+     
+    </section>
+    
+    <section class="py-3">
+      <h5>top packages</h5>
+      <div class="px-4">
+        {%for i in films %}
+        <div class="card bg-white rounded-3" style="width: 192px; height: 288px; ">
+            <div class="card-img-top align-items-center d-flex  justify-content-center" style="height:124px ;">
+                <img width="100px" height="" src="{{i.icon.url}}" alt="" class="">
+            </div>
+            
+
+            <div class="text-center card-body">
+                <h5>{{i.name}}</h5>
+                <p>{{i.shortdescription}}</p>
+                
+            </div>
+            <p class="px-2">
+                {%if not i.offlinepricing == 0%}
+                gratuit
+                {%else%}
+                {{i.offlinepricing}}$
+                {%endif%}
+            </p>
+          
+        </div>
+        {%endfor%}
+    </div>
+    </section>
+    <footer class="bg-light">
+        made by elodream 2022 all right reserved &copy;
+        
+    </footer>
+
+    {%else%}
+
+    <div class="" style="
+    background: black;
+    padding: 0 0 100px;
+    clip-path: polygon(0 0 ,0 100% ,100% 80%,100% 0);
+">
+<header id="" class="navbar w-100 " style="top:0;">
+    <ul class="nav ">
+        <li class="nav-item"><a href="" class="fs-4 nav-link">Dashbord</a></li>
+        <li class="nav-item"><a href="" class="fs-4  nav-link">store</a></li>
+    
+    </ul>
+</header>
+    
+    <div class="container lead text-center pt-4" style="
+    color: white;
+">
+        <p style="
+    margin-bottom: 50px;
+">
+            <span class="fs-1">Please download Jstore or pay Jstoreweb premium if you want to download an application </span>
+    
+        </p>
+    
+        <p><a href="http://127.0.0.1:8000/store/" class="btn btn-lg btn-primary rounded-0" style="
+    background: #f4368e;
+    border: none;
+    border-radius: 500px!important;
+    font-size: 1.5rem;
+    padding: 15px 40px;
+">Get Jstore</a></p>
+        
+    
+    </div>
+    
+</div>
+
+    <div class="py-3">
+        <h4>top apps</h4>
+        <div class="px-4">
+            {%for i in apps %}
+            <div class="card bg-white rounded-3" style="width: 192px; height: 288px; ">
+                <div class="card-img-top align-items-center d-flex  justify-content-center" style="height:124px ;">
+                    <img width="100px" height="" src="{{i.icon.url}}" alt="" class="">
+                </div>
+                
+
+                <div class="text-center card-body">
+                    <h5>{{i.name}}</h5>
+                    <p>{{i.shortdescription}}</p>
+                    
+                </div>
+                <p class="px-2">
+                    {%if not i.offlinepricing == 0%}
+                    {{i.offlinepricing}}$
+                    {%else%}
+                    gratuit
+                    {%endif%}
+                </p>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+        
+        
+        
+        <section class="py-3">
+         <h4>top games</h4> 
+            <div class="px-4">
+                {%for i in games %}
+                <div class="card bg-white rounded-3" style="width: 192px; height: 288px; ">
+                    <div class="card-img-top align-items-center d-flex  justify-content-center" style="height:124px ;">
+                        <img width="100px" height="" src="{{i.icon.url}}" alt="" class="">
+                    </div>
+                    
+    
+                    <div class="text-center card-body">
+                        <h5>{{i.name}}</h5>
+                        <p>{{i.shortdescription}}</p>
+                        
+                    </div>
+                    <p class="px-2">
+                        {%if not i.offlinepricing == 0%}
+                    gratuit
+                    {%else%}
+                    {{i.offlinepricing}}$
+                    {%endif%}
+                    </p>
+                </div>
+                {%endfor%}
+            </div>
+         
+        </section>
+        
+        <section class="py-3">
+          <h4>top package</h4>
+          <div class="px-4">
+            {%for i in packages %}
+            <div class="card bg-white rounded-3" style="width: 192px; height: 288px; ">
+                <div class="card-img-top align-items-center d-flex  justify-content-center" style="height:124px ;">
+                    <img width="100px" height="" src="{{i.icon.url}}" alt="" class="">
+                </div>
+                
+
+                <div class="text-center card-body">
+                    <h5>{{i.name}}</h5>
+                    <p>{{i.shortdescription}}</p>
+                    
+                </div>
+                <p class="px-2">
+                    {%if not i.offlinepricing == 0%}
+                    gratuit
+                    {%else%}
+                    {{i.offlinepricing}}$
+                    {%endif%}
+                </p>
+            </div>
+            {%endfor%}
+        </div>
+        </section>
+
+
+        <footer class="row py-3 m-0 w-100 bg-black text-white text-center">
+            <div class="col-lg-4"><div class="py-4"><h4>tools</h4><ul class="nav flex-column"><li class="nav-item"><a class="text-white  nav-link" href=" ">for developers</a></li><li><a class="text-white  nav-link" href="">for enterprise</a></li></ul></div></div>
+            <div class="col-lg-4"><div class="py-4"><h4>popular links</h4><ul class="nav flex-column"><li class="nav-item"><a href=" " class="text-white  nav-link">Dashboard</a></li><li><a class="text-white  nav-link" href="">elodream inc</a></li></ul></div></div>
+            <div class="col-lg-4"><div class="py-4"><h4>about</h4><ul class="nav flex-column"><li class="nav-item"><a href=" " class="text-white  nav-link">politicies</a></li><li><a class="text-white  nav-link" href="">cookies</a></li></ul></div></div>
+        </footer>
+
+        <script>
+            window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            
+            document.getElementById("navbar").style.background = "black";
+            document.getElementById("navbar").style.position = "fixed";
+          } else {
+           
+            document.getElementById("navbar").style.background = "none";
+            document.getElementById("navbar").style.position= "relative";
+          }
+        }
+        </script>
+    
+    {%endif%}
+    <script>
+        new QWebChannel(qt.webChannelTransport,
+    function(channel){
+    var jsmanager = channel.objects.jsmanager;
+    jsmanager.use("yooooo")
+    });
+    </script>
+    
     {%endblock%}
 
 
 
+   
+
+
+
+ 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </script>
  
